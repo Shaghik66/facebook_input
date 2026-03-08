@@ -43,8 +43,8 @@
   min-height: 600px;
   border-bottom: 2px solid gainsboro;
   border-left: 2px solid gainsboro;
- align-content: center;
- text-align: center;
+  align-content: center;
+  text-align: center;
 }
 
 .rightContainerTitle {
@@ -54,7 +54,8 @@
   margin-left: 30px;
 }
 
-.inputLogin, .inputPass{
+.inputLogin,
+.inputPass {
   width: 90%;
   margin-bottom: 20px;
   height: 50px;
@@ -63,17 +64,17 @@
   padding: 20px;
 }
 
-.inputLogin{
+.inputLogin {
   margin-bottom: 10px;
 }
 
-::placeholder{
+::placeholder {
   font-size: 14px;
   font-weight: 600;
   padding: 10px;
 }
 
-.loginBtn{
+.loginBtn {
   width: 90%;
   color: white;
   height: 40px;
@@ -83,33 +84,33 @@
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 100px;
-
 }
 
-
-
-
-.createBtn{
+.createBtn {
   width: 90%;
   height: 40px;
-  color:blue;
+  color: blue;
   border: 1px solid blue;
   border-radius: 50px;
   background-color: white;
 }
 
-.createBtn:hover{
+.createBtn:hover {
   background-color: rgb(240, 240, 240);
-
 }
 
-.errText{
+.errText {
   color: rgb(223, 0, 0);
   text-align: start;
   margin-left: 30px;
   margin-bottom: 20px;
 }
 
-.err{
+.err {
   border: 1px solid rgb(223, 0, 0);
+
+  &::placeholder {
+  color: rgb(223, 0, 0);
+  font-weight: 500;
+}
 }

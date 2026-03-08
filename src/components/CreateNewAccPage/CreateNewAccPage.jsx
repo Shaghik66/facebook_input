@@ -18,6 +18,7 @@ export default function CreateNewAccPage({
   newMobileNum,
   newDataPass,
   newDataPassword,
+  createAccCheck,
 }) {
   let years = [];
   let days = [];
@@ -48,64 +49,96 @@ export default function CreateNewAccPage({
 
   return (
     <div className="createAccContainer">
-      <div className="createInputContainer">
-        <input value={firstName} type="text" onChange={newFirstName} />
-        <input value={lastName} type="text" onChange={newLastName} />
+      <div className="mainCreateContainer">
+        <h1>Get started on Facebook</h1>
+        <p>
+          Create an account to connect with friends, family and communities of
+          people who share your interests.
+        </p>
+        <div className="createInputContainer">
+          <fieldset className="fieldset">
+            <legend className="inputTitle">Name</legend>
+            <input value={firstName} type="text" onChange={newFirstName} />
+            <input value={lastName} type="text" onChange={newLastName} />
+          </fieldset>
+          {createAccCheck ? "" : <p className="errTexts">What's your name?</p>}
+          <fieldset className="fieldset">
+            <legend className="inputTitle">Birthday</legend>
+            <select value={month} name="month" onChange={newMonth}>
+              <option>Month</option>
+              {months.map((month, idx) => {
+                return (
+                  <option key={idx} value={month}>
+                    {month}
+                  </option>
+                );
+              })}
+            </select>
+            <select value={day} name="day" onChange={newDay}>
+              <option>Day</option>
+              {days.map((day, idx) => {
+                return (
+                  <option key={idx} value={day}>
+                    {day}
+                  </option>
+                );
+              })}
+            </select>
+            <select value={year} name="year" onChange={newYear}>
+              <option>Year</option>
+              {years.map((year, idx) => {
+                return (
+                  <option key={idx} value={year}>
+                    {year}
+                  </option>
+                );
+              })}
+            </select>
+          </fieldset>
+          {createAccCheck ? (
+            ""
+          ) : (
+            <p className="errTexts">
+              Select your birthday. You can change who can see this later.
+            </p>
+          )}
+          <fieldset className="fieldset">
+            <legend className="inputTitle">Gender</legend>
+            <select value={gender} name="gender" onChange={newDataGender}>
+              <option value={gender}>Gender</option>
+              {genderArr.map((gen, idx) => {
+                return (
+                  <option key={idx} value={gender}>
+                    {gen}
+                  </option>
+                );
+              })}
+            </select>
+          </fieldset>
+          {createAccCheck ? (
+            ""
+          ) : (
+            <p className="errTexts">
+              Please choose a gender. You can change who can see this later.
+            </p>
+          )}
 
-        <select value={month} name="month" onChange={newMonth}>
-          <option>Month</option>
-          {months.map((month, idx) => {
-            return (
-              <option key={idx} value={month}>
-                {month}
-              </option>
-            );
-          })}
-        </select>
-        <select value={day} name="day" onChange={newDay}>
-          <option>Day</option>
-          {days.map((day, idx) => {
-            return (
-              <option key={idx} value={day}>
-                {day}
-              </option>
-            );
-          })}
-        </select>
-        <select value={year} name="year" onChange={newYear}>
-          <option>Year</option>
-          {years.map((year, idx) => {
-            return (
-              <option key={idx} value={year}>
-                {year}
-              </option>
-            );
-          })}
-        </select>
-        <select
-          defaultValue="Gender"
-          value={gender}
-          name="gender"
-          onChange={newDataGender}
-        >
-          <option value={gender}>Gender</option>
-          {genderArr.map((gen, idx) => {
-            return (
-              <option key={idx} value={gender}>
-                {gen}
-              </option>
-            );
-          })}
-        </select>
-        <input value={mobileNum} type="text" onChange={newMobileNum} />
-        <input value={newDataPass} type="text" onChange={newDataPassword} />
-        <button
-          onClick={() => {
-            addAccData();
-          }}
-        >
-          +
-        </button>
+          <fieldset className="fieldset">
+            <option value={gender}>Mobile number or email</option>
+            <input value={mobileNum} type="text" onChange={newMobileNum} />
+          </fieldset>
+          <fieldset className="fieldset">
+            <option value={gender}>Password</option>
+            <input value={newDataPass} type="text" onChange={newDataPassword} />
+          </fieldset>
+          <button
+            onClick={() => {
+              addAccData();
+            }}
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

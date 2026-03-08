@@ -20,20 +20,29 @@ function App() {
   const [mobileNum, setMobileNum] = useState("");
   const [newDataPass, setNewDataPass] = useState("");
   const [newAccData, setNewAccData] = useState([]);
+  const [createAccCheck, setCreateAccCheck] = useState(true);
 
   const newLogin = (e) => {
     (setLogin(e.target.value), setErr(true));
   };
   const newPass = (e) => setPass(e.target.value);
 
-  const newFirstName = (e) => setFirstName(e.target.value);
-  const newLastName = (e) => setLastName(e.target.value);
+  const newFirstName = (e) => {
+    (setFirstName(e.target.value), setCreateAccCheck(true));
+  };
+  const newLastName = (e) => {
+    (setLastName(e.target.value), setCreateAccCheck(true));
+  };
   const newMonth = (e) => setMonth(e.target.value);
   const newDay = (e) => setDay(e.target.value);
   const newYear = (e) => setYear(e.target.value);
   const newDataGender = (e) => setGender(e.target.value);
-  const newMobileNum = (e) => setMobileNum(e.target.value);
-  const newDataPassword = (e) => setNewDataPass(e.target.value);
+  const newMobileNum = (e) => {
+    (setMobileNum(e.target.value), setCreateAccCheck(true));
+  };
+  const newDataPassword = (e) => {
+    (setNewDataPass(e.target.value), setCreateAccCheck(true));
+  };
 
   const resetNewAccData = () => {
     setFirstName("");
@@ -46,21 +55,36 @@ function App() {
   };
 
   const addAccData = () => {
-    setNewAccData([
-      ...newAccData,
-      {
-        id: Date.now(),
-        firstName: firstName,
-        lastName: lastName,
-        month: month,
-        day: day,
-        year: year,
-        gender: gender,
-        mobileNum: mobileNum,
-        newDataPass: newDataPass,
-      },
-    ]);
-    resetNewAccData();
+    if (
+      firstName.trim() &&
+      lastName.trim() &&
+      mobileNum.trim() &&
+      newDataPass.trim()
+    ) {
+      setNewAccData(
+        [
+          ...newAccData,
+          {
+            id: Date.now(),
+            firstName: firstName,
+            lastName: lastName,
+            month: month,
+            day: day,
+            year: year,
+            gender: gender,
+            mobileNum: mobileNum,
+            newDataPass: newDataPass,
+            pass: pass,
+          },
+        ],
+        setCreateAccCheck(true),
+        resetNewAccData(),
+      );
+    } else {
+      setNewAccData(newAccData);
+      resetNewAccData();
+      setCreateAccCheck(false);
+    }
   };
 
   const newDb = db.map((newDb) => {
@@ -85,7 +109,6 @@ function App() {
     setNewPage(!newPage);
   };
 
-  console.log(newAccData);
   return (
     <main className="main">
       <LoginForm
@@ -98,7 +121,7 @@ function App() {
         createNewAccPage={createNewAccPage}
         newPage={newPage}
       />
-      
+
       {newPage ? (
         <CreateNewAccPage
           firstName={firstName}
@@ -118,6 +141,7 @@ function App() {
           newMobileNum={newMobileNum}
           newDataPass={newDataPass}
           newDataPassword={newDataPassword}
+          createAccCheck={createAccCheck}
         />
       ) : (
         ""
