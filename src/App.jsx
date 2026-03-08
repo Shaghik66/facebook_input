@@ -98,9 +98,7 @@ function App() {
         createNewAccPage={createNewAccPage}
         newPage={newPage}
       />
-      <button className="createBtn" onClick={createNewAccPage}>
-        Create New Account
-      </button>
+      
       {newPage ? (
         <CreateNewAccPage
           firstName={firstName}

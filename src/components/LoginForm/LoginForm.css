@@ -1,0 +1,115 @@
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  min-height: 600px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.mainLeftContainer {
+  position: relative;
+  min-width: 50%;
+  min-height: 100px;
+  border-bottom: 2px solid gainsboro;
+  padding: 10px;
+}
+
+.logo {
+  width: 60px;
+}
+
+.mainParagraph {
+  margin-top: 200px;
+  font-size: 46px;
+}
+
+.paragraphSpan {
+  color: blue;
+}
+
+.image {
+  max-width: 85%;
+  position: absolute;
+  top: 0;
+  left: 100px;
+}
+
+.rightContainer {
+  width: 50%;
+}
+
+.rightContainer {
+  padding: 10px;
+  min-height: 600px;
+  border-bottom: 2px solid gainsboro;
+  border-left: 2px solid gainsboro;
+ align-content: center;
+ text-align: center;
+}
+
+.rightContainerTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: start;
+  margin-left: 30px;
+}
+
+.inputLogin, .inputPass{
+  width: 90%;
+  margin-bottom: 20px;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.inputLogin{
+  margin-bottom: 10px;
+}
+
+::placeholder{
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.loginBtn{
+  width: 90%;
+  color: white;
+  height: 40px;
+  border: none;
+  background-color: blue;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 100px;
+
+}
+
+
+
+
+.createBtn{
+  width: 90%;
+  height: 40px;
+  color:blue;
+  border: 1px solid blue;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.createBtn:hover{
+  background-color: rgb(240, 240, 240);
+
+}
+
+.errText{
+  color: rgb(223, 0, 0);
+  text-align: start;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.err{
+  border: 1px solid rgb(223, 0, 0);
+}
